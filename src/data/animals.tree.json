@@ -1,0 +1,582 @@
+{
+  "root": "q_vertebrate",
+  "nodes": {
+    "q_vertebrate": {
+      "id": "q_vertebrate",
+      "type": "question",
+      "text": "¿Tiene columna vertebral?",
+      "concept": "vertebrado",
+      "explanation": "La columna vertebral es el primer gran criterio para clasificar animales. Los vertebrados (peces, anfibios, reptiles, aves y mamíferos) tienen un esqueleto interno con huesos; los invertebrados como insectos, arañas y pulpos no.",
+      "routes": { "yes": "q_warmblood", "no": "q_legs8", "unknown": "q_warmblood" }
+    },
+    "q_legs8": {
+      "id": "q_legs8",
+      "type": "question",
+      "text": "¿Tiene 8 patas?",
+      "concept": "arácnido",
+      "explanation": "Contar patas ayuda a separar grupos de invertebrados: los arácnidos como las arañas y los escorpiones tienen 8 patas, mientras que los insectos tienen solo 6. Es una diferencia clave aunque a simple vista parezcan parecidos.",
+      "routes": { "yes": "a_spider", "no": "q_water_inv", "unknown": "q_water_inv" }
+    },
+    "q_water_inv": {
+      "id": "q_water_inv",
+      "type": "question",
+      "text": "¿Vive en el agua?",
+      "concept": "hábitat acuático",
+      "explanation": "El hábitat divide a los invertebrados en grupos muy distintos: moluscos marinos como el pulpo viven en el mar y usan branquias, mientras que insectos como la mariposa viven en tierra y aire y respiran por pequeños tubos.",
+      "routes": { "yes": "a_octopus", "no": "a_butterfly", "unknown": "a_butterfly" }
+    },
+    "q_warmblood": {
+      "id": "q_warmblood",
+      "type": "question",
+      "text": "¿Tiene sangre caliente?",
+      "concept": "homeotermia",
+      "explanation": "Los animales de sangre caliente (homeotermos) mantienen su temperatura constante sin importar el clima: son los mamíferos y las aves. Los de sangre fría dependen del ambiente para calentarse: peces, reptiles y anfibios.",
+      "routes": { "yes": "q_feathers", "no": "q_water_cold", "unknown": "q_water_cold" }
+    },
+    "q_feathers": {
+      "id": "q_feathers",
+      "type": "question",
+      "text": "¿Tiene plumas?",
+      "concept": "plumas",
+      "explanation": "Las plumas son exclusivas de las aves: ningún otro animal las tiene. Por eso son la mejor pista para distinguir aves de mamíferos, incluso cuando el animal no vuela o vive en el agua.",
+      "routes": { "yes": "q_flies_bird", "no": "q_water_mammal", "unknown": "q_water_mammal" }
+    },
+    "q_flies_bird": {
+      "id": "q_flies_bird",
+      "type": "question",
+      "text": "¿Puede volar?",
+      "concept": "vuelo",
+      "explanation": "No todas las aves vuelan. Algunas como pingüinos y gallinas perdieron esa capacidad con la evolución y adaptaron sus alas para nadar o para aletear distancias cortas, aunque siguen siendo aves.",
+      "routes": { "yes": "q_talks", "no": "q_cold_bird", "unknown": "q_cold_bird" }
+    },
+    "q_talks": {
+      "id": "q_talks",
+      "type": "question",
+      "text": "¿Habla o imita sonidos?",
+      "concept": "imitación vocal",
+      "explanation": "Algunas aves como los loros imitan voces humanas usando un órgano especial llamado siringe, que está en la base de su garganta. Es una habilidad muy poco común en el reino animal.",
+      "routes": { "yes": "a_parrot", "no": "a_eagle", "unknown": "a_eagle" }
+    },
+    "q_cold_bird": {
+      "id": "q_cold_bird",
+      "type": "question",
+      "text": "¿Vive en lugares muy fríos?",
+      "concept": "adaptación al frío",
+      "explanation": "El hábitat ayuda a identificar aves no voladoras: los pingüinos viven en zonas polares y tienen plumas súper densas que los aíslan del frío, mientras que las gallinas son aves de granja en climas templados.",
+      "routes": { "yes": "a_penguin", "no": "a_chicken", "unknown": "a_chicken" }
+    },
+    "q_water_mammal": {
+      "id": "q_water_mammal",
+      "type": "question",
+      "text": "¿Vive en el agua?",
+      "concept": "mamíferos acuáticos",
+      "explanation": "Aunque la mayoría de mamíferos viven en tierra, algunos como delfines y ballenas evolucionaron para vivir en el mar. Siguen respirando aire con pulmones y amamantando a sus crías, aunque por fuera parezcan peces.",
+      "routes": { "yes": "q_big", "no": "q_flies_mammal", "unknown": "q_flies_mammal" }
+    },
+    "q_big": {
+      "id": "q_big",
+      "type": "question",
+      "text": "¿Mide más de 5 metros?",
+      "concept": "tamaño",
+      "explanation": "El tamaño ayuda a distinguir mamíferos marinos: las ballenas son gigantes (algunas superan los 20 metros, como un edificio de 7 pisos acostado), mientras que los delfines miden entre 2 y 4 metros.",
+      "routes": { "yes": "a_whale", "no": "a_dolphin", "unknown": "a_dolphin" }
+    },
+    "q_flies_mammal": {
+      "id": "q_flies_mammal",
+      "type": "question",
+      "text": "¿Puede volar?",
+      "concept": "vuelo en mamíferos",
+      "explanation": "El murciélago es el único mamífero capaz de volar de verdad. Sus alas son membranas de piel estiradas entre sus dedos súper largos, muy diferentes a las alas con plumas de las aves.",
+      "routes": { "yes": "a_bat", "no": "q_domestic", "unknown": "q_domestic" }
+    },
+    "q_domestic": {
+      "id": "q_domestic",
+      "type": "question",
+      "text": "¿Vive con humanos como mascota o animal de granja?",
+      "concept": "domesticación",
+      "explanation": "La domesticación es un proceso de miles de años en el que humanos y animales aprendieron a convivir y depender unos de otros. Separa animales como perros, gatos y vacas de los salvajes como leones y elefantes.",
+      "routes": { "yes": "q_barks", "no": "q_mane", "unknown": "q_mane" }
+    },
+    "q_barks": {
+      "id": "q_barks",
+      "type": "question",
+      "text": "¿Ladra?",
+      "concept": "comunicación animal",
+      "explanation": "Cada especie tiene sonidos típicos para comunicarse: los perros ladran, los gatos maúllan, las vacas mugen. Estos sonidos son pistas rápidas para identificar un animal sin verlo.",
+      "routes": { "yes": "a_dog", "no": "q_meows", "unknown": "q_meows" }
+    },
+    "q_meows": {
+      "id": "q_meows",
+      "type": "question",
+      "text": "¿Maúlla?",
+      "concept": "comunicación animal",
+      "explanation": "El maullido es característico de los gatos domésticos y lo usan sobre todo para comunicarse con los humanos: entre ellos casi no maúllan cuando son adultos, prefieren otros sonidos.",
+      "routes": { "yes": "a_cat", "no": "a_cow", "unknown": "a_cow" }
+    },
+    "q_mane": {
+      "id": "q_mane",
+      "type": "question",
+      "text": "¿Tiene melena alrededor de la cabeza?",
+      "concept": "dimorfismo sexual",
+      "explanation": "La melena del león macho es un ejemplo de dimorfismo sexual: machos y hembras de la misma especie se ven diferentes. Le sirve al macho para atraer pareja y para proteger el cuello en peleas.",
+      "routes": { "yes": "a_lion", "no": "a_elephant", "unknown": "a_elephant" }
+    },
+    "q_water_cold": {
+      "id": "q_water_cold",
+      "type": "question",
+      "text": "¿Vive principalmente en el agua?",
+      "concept": "hábitat acuático",
+      "explanation": "Entre los animales de sangre fría el hábitat es clave para clasificarlos: los peces viven siempre en el agua y respiran por branquias, los anfibios viven entre agua y tierra, y la mayoría de los reptiles en tierra firme.",
+      "routes": { "yes": "q_sharp_teeth", "no": "q_legs_rep", "sometimes": "q_tail_adult", "unknown": "q_legs_rep" }
+    },
+    "q_sharp_teeth": {
+      "id": "q_sharp_teeth",
+      "type": "question",
+      "text": "¿Tiene muchos dientes afilados?",
+      "concept": "depredación",
+      "explanation": "Los dientes revelan la dieta. Los tiburones tienen varias filas de dientes afilados porque son depredadores feroces; otros peces como el salmón tienen dientes pequeños o casi invisibles porque comen cosas más chicas.",
+      "routes": { "yes": "a_shark", "no": "q_colorful", "unknown": "q_colorful" }
+    },
+    "q_colorful": {
+      "id": "q_colorful",
+      "type": "question",
+      "text": "¿Es de colores vivos naranja y blanco?",
+      "concept": "coloración animal",
+      "explanation": "Los colores vivos en los peces suelen servir de camuflaje, de aviso o de señal para otros de su especie. El pez payaso vive entre anémonas y sus colores llamativos lo identifican fácilmente.",
+      "routes": { "yes": "a_clownfish", "no": "a_salmon", "unknown": "a_salmon" }
+    },
+    "q_tail_adult": {
+      "id": "q_tail_adult",
+      "type": "question",
+      "text": "¿Tiene cola cuando es adulto?",
+      "concept": "metamorfosis",
+      "explanation": "Los anfibios sufren metamorfosis: cambian de forma al crecer. Algunos como las ranas pierden la cola al pasar de renacuajo a adulto, mientras que las salamandras la conservan toda su vida.",
+      "routes": { "yes": "a_salamander", "no": "a_frog", "unknown": "a_frog" }
+    },
+    "q_legs_rep": {
+      "id": "q_legs_rep",
+      "type": "question",
+      "text": "¿Tiene patas?",
+      "concept": "locomoción reptil",
+      "explanation": "Entre los reptiles hay gran variedad de formas de moverse. Las serpientes no tienen patas y reptan arrastrando el cuerpo; los cocodrilos y las tortugas sí tienen patas, aunque cortas.",
+      "routes": { "yes": "q_shell", "no": "a_snake", "unknown": "a_snake" }
+    },
+    "q_shell": {
+      "id": "q_shell",
+      "type": "question",
+      "text": "¿Tiene caparazón?",
+      "concept": "protección corporal",
+      "explanation": "El caparazón de la tortuga es parte de su esqueleto: sus costillas y columna están fusionadas al caparazón, así que no puede salir de él. Es una adaptación única entre los reptiles.",
+      "routes": { "yes": "a_turtle", "no": "a_crocodile", "unknown": "a_crocodile" }
+    },
+    "q_dolphin_fallback": {
+      "id": "q_dolphin_fallback",
+      "type": "question",
+      "text": "¿Es un animal marino grande con aletas, parecido al delfín?",
+      "concept": "mamíferos marinos",
+      "explanation": "Delfines, orcas, focas y ballenas son mamíferos marinos distintos. Se parecen por vivir en el agua y tener aletas, pero pertenecen a grupos diferentes dentro de los mamíferos.",
+      "routes": { "yes": "a_whale", "no": "a_dolphin", "unknown": "a_dolphin" }
+    },
+
+    "a_spider": {
+      "id": "a_spider",
+      "type": "answer",
+      "animal": "Araña",
+      "classification": "Invertebrado (arácnido)",
+      "confidenceQuestion": "¿Estás pensando en una araña?",
+      "reasoning": "Es un invertebrado con 8 patas, lo que la hace arácnida — aunque mucha gente la confunde con un insecto, no lo es porque los insectos tienen 6 patas.",
+      "misconceptionCorrection": "La araña no es un insecto: los insectos tienen 6 patas y las arañas tienen 8. Pertenecen a grupos distintos de invertebrados.",
+      "reinforcement": {
+        "question": "¿Sabías que las arañas no tienen huesos?",
+        "fact": "Las arañas tienen un esqueleto por fuera llamado exoesqueleto, y algunas pueden tejer telarañas más resistentes que el acero del mismo grosor.",
+        "extraFact": "La seda de araña sale líquida de su cuerpo y se endurece al contacto con el aire, formando los hilos de la telaraña."
+      },
+      "funFacts": [
+        "Las arañas tienen hasta 8 ojos, pero la mayoría ve bastante mal y se guía más por las vibraciones.",
+        "Casi todas las arañas tienen veneno, aunque muy pocas especies son peligrosas para las personas."
+      ]
+    },
+    "a_octopus": {
+      "id": "a_octopus",
+      "type": "answer",
+      "animal": "Pulpo",
+      "classification": "Invertebrado (molusco)",
+      "confidenceQuestion": "¿Estás pensando en un pulpo?",
+      "reasoning": "Es un invertebrado marino con 8 brazos y sin columna vertebral — pertenece a los moluscos, igual que los caracoles, aunque parezca muy diferente a simple vista.",
+      "misconceptionCorrection": "El pulpo no es un pez aunque viva en el mar: es un molusco, pariente de los caracoles y los calamares. No tiene escamas ni espinas.",
+      "reinforcement": {
+        "question": "¿Sabías que el pulpo tiene tres corazones?",
+        "fact": "El pulpo tiene tres corazones y sangre azul. Además, es uno de los animales invertebrados más inteligentes que existen.",
+        "extraFact": "Puede cambiar de color y de textura en menos de un segundo para camuflarse con el fondo del mar."
+      },
+      "funFacts": [
+        "Cada brazo del pulpo tiene su propio mini cerebro y puede moverse casi por cuenta propia.",
+        "Si un pulpo pierde un brazo, puede regenerarlo entero con el tiempo."
+      ]
+    },
+    "a_butterfly": {
+      "id": "a_butterfly",
+      "type": "answer",
+      "animal": "Mariposa",
+      "classification": "Invertebrado (insecto)",
+      "confidenceQuestion": "¿Estás pensando en una mariposa?",
+      "reasoning": "Es un insecto con 6 patas y alas cubiertas de pequeñas escamas de colores — como todos los insectos, no tiene columna vertebral y su cuerpo se divide en tres partes.",
+      "reinforcement": {
+        "question": "¿Sabías que las mariposas saborean con las patas?",
+        "fact": "Las mariposas tienen receptores del gusto en sus patas, así que prueban la comida apenas se posan sobre ella.",
+        "extraFact": "Antes de ser mariposas fueron orugas: sufren una metamorfosis completa dentro de un capullo."
+      },
+      "funFacts": [
+        "Las alas de las mariposas están hechas de miles de escamas diminutas que se desprenden como polvo si las tocás.",
+        "Algunas mariposas, como la monarca, vuelan miles de kilómetros cada año en busca de climas cálidos."
+      ]
+    },
+    "a_parrot": {
+      "id": "a_parrot",
+      "type": "answer",
+      "animal": "Loro",
+      "classification": "Ave",
+      "confidenceQuestion": "¿Estás pensando en un loro?",
+      "reasoning": "Es un ave tropical de colores vivos que puede imitar la voz humana usando su siringe, una habilidad muy poco común en el reino animal.",
+      "reinforcement": {
+        "question": "¿Sabías que algunos loros viven más de 70 años?",
+        "fact": "Ciertos loros, como las cacatúas y guacamayos, pueden vivir más de 70 años, casi tanto como un humano.",
+        "extraFact": "Los loros usan sus patas como si fueran manos para sostener la comida mientras comen."
+      },
+      "funFacts": [
+        "Hay más de 350 especies de loros en el mundo, y la mayoría vive en selvas tropicales.",
+        "No solo imitan voces: también copian ladridos, teléfonos y ruidos de la casa."
+      ]
+    },
+    "a_eagle": {
+      "id": "a_eagle",
+      "type": "answer",
+      "animal": "Águila",
+      "classification": "Ave",
+      "confidenceQuestion": "¿Estás pensando en un águila?",
+      "reasoning": "Es un ave rapaz que vuela muy alto y caza con sus garras afiladas — tiene plumas como todas las aves y una vista mucho más aguda que la humana.",
+      "reinforcement": {
+        "question": "¿Sabías que las águilas ven mucho mejor que los humanos?",
+        "fact": "El águila puede ver una presa pequeña a más de 3 kilómetros de distancia gracias a su vista ultra aguda.",
+        "extraFact": "Sus garras, llamadas talones, son tan fuertes que pueden ejercer más presión que la mano de un humano adulto."
+      },
+      "funFacts": [
+        "Las águilas construyen nidos enormes en lo alto de los árboles o en acantilados, y los reutilizan cada año.",
+        "Pueden volar a velocidades de más de 150 km/h cuando se lanzan en picada a cazar."
+      ]
+    },
+    "a_penguin": {
+      "id": "a_penguin",
+      "type": "answer",
+      "animal": "Pingüino",
+      "classification": "Ave",
+      "confidenceQuestion": "¿Estás pensando en un pingüino?",
+      "reasoning": "Es un ave que no vuela pero nada muy bien usando sus alas como aletas — tiene plumas y pone huevos como todas las aves, aunque viva en el hielo.",
+      "misconceptionCorrection": "El pingüino es un ave, no un mamífero. Aunque no vuele, tiene plumas y pone huevos, que son las señas clave de las aves.",
+      "reinforcement": {
+        "question": "¿Sabías que los pingüinos se turnan para cuidar sus huevos?",
+        "fact": "En muchas especies de pingüinos, el papá sostiene el huevo sobre sus patas durante meses sin comer para mantenerlo caliente.",
+        "extraFact": "Sus plumas son tan compactas y aceitadas que forman una capa impermeable que los mantiene secos bajo el agua."
+      },
+      "funFacts": [
+        "Los pingüinos se zambullen a más de 200 metros de profundidad en busca de peces.",
+        "Se abrazan en grupos enormes para no congelarse en las ventiscas antárticas."
+      ]
+    },
+    "a_chicken": {
+      "id": "a_chicken",
+      "type": "answer",
+      "animal": "Gallina",
+      "classification": "Ave",
+      "confidenceQuestion": "¿Estás pensando en una gallina?",
+      "reasoning": "Es un ave de granja que no vuela más que distancias cortas — pone huevos y tiene plumas como todas las aves, y es una de las aves más comunes en el mundo.",
+      "reinforcement": {
+        "question": "¿Sabías que las gallinas pueden recordar más de 100 caras?",
+        "fact": "Las gallinas reconocen y recuerdan más de cien rostros, tanto de otras gallinas como de personas.",
+        "extraFact": "Son descendientes directas de pequeños dinosaurios que vivieron hace millones de años."
+      },
+      "funFacts": [
+        "Una gallina puede poner casi 300 huevos por año.",
+        "Las gallinas les hablan a sus pollitos incluso antes de que nazcan, a través del cascarón."
+      ]
+    },
+    "a_whale": {
+      "id": "a_whale",
+      "type": "answer",
+      "animal": "Ballena",
+      "classification": "Mamífero",
+      "confidenceQuestion": "¿Estás pensando en una ballena?",
+      "reasoning": "Es un mamífero gigantesco que vive en el mar — respira aire por un agujero en la cabeza y amamanta a sus crías, aunque por fuera parezca un pez enorme.",
+      "misconceptionCorrection": "La ballena no es un pez: es un mamífero. Respira aire con pulmones, da a luz crías vivas y las alimenta con leche igual que una vaca.",
+      "reinforcement": {
+        "question": "¿Sabías que la ballena azul es el animal más grande que existió?",
+        "fact": "La ballena azul puede medir más de 30 metros y su corazón pesa tanto como un auto pequeño.",
+        "extraFact": "Los cantos de las ballenas viajan cientos de kilómetros bajo el agua y les sirven para comunicarse entre familias."
+      },
+      "funFacts": [
+        "Una cría de ballena azul puede tomar unos 200 litros de leche por día.",
+        "Las ballenas no tienen dientes sino barbas: unos filtros que atrapan diminutos animales marinos."
+      ]
+    },
+    "a_dolphin": {
+      "id": "a_dolphin",
+      "type": "answer",
+      "animal": "Delfín",
+      "classification": "Mamífero",
+      "confidenceQuestion": "¿Estás pensando en un delfín?",
+      "reasoning": "Es mamífero porque respira aire y amamanta a sus crías — aunque viva en el agua como un pez, es muy inteligente, social y forma grupos con lazos muy fuertes.",
+      "misconceptionCorrection": "El delfín no es un pez aunque viva en el mar: es mamífero. Respira por un orificio arriba de su cabeza y sus crías nacen vivas.",
+      "reinforcement": {
+        "question": "¿Sabías que los delfines se llaman entre ellos por su nombre?",
+        "fact": "Cada delfín tiene un silbido único, como un nombre propio, que otros delfines usan para llamarlo.",
+        "extraFact": "Los delfines duermen con la mitad del cerebro por vez para poder seguir respirando y estar atentos al peligro."
+      },
+      "funFacts": [
+        "Usan un sistema parecido al de los murciélagos, la ecolocalización, para encontrar peces en el mar.",
+        "Juegan con burbujas, algas y hasta con otros animales solo por diversión."
+      ],
+      "fallback": "q_dolphin_fallback"
+    },
+    "a_bat": {
+      "id": "a_bat",
+      "type": "answer",
+      "animal": "Murciélago",
+      "classification": "Mamífero",
+      "confidenceQuestion": "¿Estás pensando en un murciélago?",
+      "reasoning": "Es el único mamífero capaz de volar de verdad — tiene pelo y amamanta a sus crías, aunque tenga alas y viva en cuevas como si fuera un ave.",
+      "misconceptionCorrection": "El murciélago no es un ave: es un mamífero. Sus alas son membranas de piel, no plumas, y sus crías nacen vivas y toman leche.",
+      "reinforcement": {
+        "question": "¿Sabías que los murciélagos ven con el oído?",
+        "fact": "Los murciélagos emiten sonidos muy agudos y escuchan el eco para ubicarse. A esto se le llama ecolocalización.",
+        "extraFact": "La mayoría de murciélagos no chupa sangre: comen insectos, frutas o néctar, y ayudan a polinizar muchas plantas."
+      },
+      "funFacts": [
+        "Duermen colgados cabeza abajo porque sus patas están diseñadas para agarrarse sin esfuerzo.",
+        "Un solo murciélago puede comerse más de mil mosquitos en una noche."
+      ]
+    },
+    "a_dog": {
+      "id": "a_dog",
+      "type": "answer",
+      "animal": "Perro",
+      "classification": "Mamífero",
+      "confidenceQuestion": "¿Estás pensando en un perro?",
+      "reasoning": "Es un mamífero doméstico que ladra y vive con los humanos desde hace miles de años — fue el primer animal domesticado, mucho antes que las vacas o los gatos.",
+      "reinforcement": {
+        "question": "¿Sabías que el olfato del perro es 10.000 veces más fino que el humano?",
+        "fact": "Un perro puede oler cosas que nosotros ni imaginamos, como cambios de azúcar en la sangre o emociones en el sudor.",
+        "extraFact": "Los perros son descendientes de los lobos y comparten con ellos más del 98% de su ADN."
+      },
+      "funFacts": [
+        "Mueven la cola hacia la derecha cuando están contentos y hacia la izquierda cuando están nerviosos.",
+        "Cada perro tiene una huella de nariz única, como nuestras huellas digitales."
+      ]
+    },
+    "a_cat": {
+      "id": "a_cat",
+      "type": "answer",
+      "animal": "Gato",
+      "classification": "Mamífero",
+      "confidenceQuestion": "¿Estás pensando en un gato?",
+      "reasoning": "Es un mamífero doméstico que maúlla — tiene pelo, amamanta a sus crías y pertenece a la familia de los felinos, como el león pero mucho más pequeño.",
+      "reinforcement": {
+        "question": "¿Sabías que los gatos ronronean para curarse?",
+        "fact": "El ronroneo del gato vibra a frecuencias que ayudan a sanar sus huesos y músculos.",
+        "extraFact": "Sus bigotes no son decorativos: les sirven para medir si caben por un hueco y para detectar cambios en el aire."
+      },
+      "funFacts": [
+        "Los gatos pasan entre 12 y 16 horas durmiendo cada día.",
+        "Casi siempre caen de pie gracias a un reflejo súper rápido que endereza su cuerpo en el aire."
+      ]
+    },
+    "a_cow": {
+      "id": "a_cow",
+      "type": "answer",
+      "animal": "Vaca",
+      "classification": "Mamífero",
+      "confidenceQuestion": "¿Estás pensando en una vaca?",
+      "reasoning": "Es un mamífero de granja que come pasto — tiene cuatro estómagos para digerir las plantas y da leche a sus crías, como todos los mamíferos.",
+      "reinforcement": {
+        "question": "¿Sabías que las vacas tienen mejores amigas?",
+        "fact": "Las vacas forman amistades: se estresan menos cuando están con su amiga favorita y se sienten solas si las separan.",
+        "extraFact": "Mastican su comida dos veces: la tragan, la devuelven a la boca como bolo y la vuelven a masticar; eso se llama rumiar."
+      },
+      "funFacts": [
+        "Una vaca bebe alrededor de 100 litros de agua por día.",
+        "Tienen una vista casi de 360 grados, así que pueden ver casi todo a su alrededor sin girar la cabeza."
+      ]
+    },
+    "a_lion": {
+      "id": "a_lion",
+      "type": "answer",
+      "animal": "León",
+      "classification": "Mamífero",
+      "confidenceQuestion": "¿Estás pensando en un león?",
+      "reasoning": "Es un mamífero felino salvaje — el macho tiene melena alrededor de la cabeza, que lo hace reconocible al instante y lo distingue de otros grandes gatos como los tigres.",
+      "reinforcement": {
+        "question": "¿Sabías que las hembras león son las que cazan?",
+        "fact": "En una manada de leones, las hembras trabajan en equipo para cazar mientras el macho protege el territorio.",
+        "extraFact": "El rugido de un león puede oírse hasta 8 kilómetros de distancia en la sabana."
+      },
+      "funFacts": [
+        "Los leones duermen hasta 20 horas por día y solo cazan al atardecer o de noche.",
+        "Son los únicos felinos que viven en grupo, llamado manada."
+      ]
+    },
+    "a_elephant": {
+      "id": "a_elephant",
+      "type": "answer",
+      "animal": "Elefante",
+      "classification": "Mamífero",
+      "confidenceQuestion": "¿Estás pensando en un elefante?",
+      "reasoning": "Es el mamífero terrestre más grande — tiene trompa, colmillos y una memoria excelente, y vive en manadas familiares lideradas por la hembra más vieja.",
+      "reinforcement": {
+        "question": "¿Sabías que los elefantes lloran a sus muertos?",
+        "fact": "Los elefantes se quedan junto a los cuerpos de sus familiares fallecidos y los tocan con la trompa en señal de duelo.",
+        "extraFact": "Su trompa tiene más de 40.000 músculos y puede levantar troncos pesados o recoger un maní del suelo."
+      },
+      "funFacts": [
+        "Se comunican con sonidos tan graves que los humanos no podemos oírlos, pero viajan kilómetros por el suelo.",
+        "Los elefantes se reconocen en el espejo, algo que muy pocos animales pueden hacer."
+      ]
+    },
+    "a_shark": {
+      "id": "a_shark",
+      "type": "answer",
+      "animal": "Tiburón",
+      "classification": "Pez",
+      "confidenceQuestion": "¿Estás pensando en un tiburón?",
+      "reasoning": "Es un pez depredador con filas de dientes afilados — a diferencia de casi todos los peces, su esqueleto es de cartílago, no de hueso, lo que lo hace más liviano y flexible.",
+      "misconceptionCorrection": "El tiburón sí es un pez, aunque muy distinto: tiene esqueleto de cartílago y no tiene escamas comunes, sino una piel áspera como lija.",
+      "reinforcement": {
+        "question": "¿Sabías que los tiburones pueden renovar sus dientes toda la vida?",
+        "fact": "Un tiburón puede reemplazar sus dientes miles de veces a lo largo de su vida: cuando pierde uno, crece otro detrás.",
+        "extraFact": "Los tiburones existen desde hace más de 400 millones de años, mucho antes que los dinosaurios."
+      },
+      "funFacts": [
+        "Detectan campos eléctricos minúsculos y pueden sentir el latido del corazón de un pez escondido en la arena.",
+        "No todos los tiburones son gigantes: el tiburón pigmeo cabe en la palma de una mano."
+      ]
+    },
+    "a_clownfish": {
+      "id": "a_clownfish",
+      "type": "answer",
+      "animal": "Pez payaso",
+      "classification": "Pez",
+      "confidenceQuestion": "¿Estás pensando en un pez payaso?",
+      "reasoning": "Es un pez pequeño de colores naranja y blanco que vive entre los tentáculos de las anémonas del mar — que no lo pican gracias a una capa especial de mucosidad que lo protege.",
+      "reinforcement": {
+        "question": "¿Sabías que los peces payaso pueden cambiar de sexo?",
+        "fact": "Cuando la hembra principal de un grupo muere, el macho más grande cambia de sexo y pasa a ser la nueva hembra.",
+        "extraFact": "Los peces payaso y las anémonas se ayudan mutuamente: el pez ahuyenta depredadores y la anémona lo protege."
+      },
+      "funFacts": [
+        "Casi no saben nadar en mar abierto: pasan casi toda su vida muy cerca de su anémona.",
+        "Los papás peces payaso son los que cuidan los huevos y los ventilan con sus aletas."
+      ]
+    },
+    "a_salmon": {
+      "id": "a_salmon",
+      "type": "answer",
+      "animal": "Salmón",
+      "classification": "Pez",
+      "confidenceQuestion": "¿Estás pensando en un salmón?",
+      "reasoning": "Es un pez que nace en ríos, viaja al mar y vuelve al mismo río a poner sus huevos — tiene sangre fría y respira por branquias, como todos los peces.",
+      "reinforcement": {
+        "question": "¿Sabías que el salmón encuentra su río natal por el olor?",
+        "fact": "Los salmones recuerdan el olor del río donde nacieron y regresan a él tras años en el océano para reproducirse.",
+        "extraFact": "Para volver a su río, un salmón puede saltar cascadas de más de 2 metros de alto."
+      },
+      "funFacts": [
+        "Cambian de color cuando entran al río: su cuerpo se vuelve más rojizo al acercarse a desovar.",
+        "Su carne es rosada por lo que comen en el mar, sobre todo pequeños crustáceos llamados krill."
+      ]
+    },
+    "a_frog": {
+      "id": "a_frog",
+      "type": "answer",
+      "animal": "Rana",
+      "classification": "Anfibio",
+      "confidenceQuestion": "¿Estás pensando en una rana?",
+      "reasoning": "Es un anfibio que vive entre el agua y la tierra — nace como renacuajo con cola y al crecer la pierde y le salen patas, un ejemplo claro de metamorfosis.",
+      "misconceptionCorrection": "La rana no es un reptil aunque se le parezca: es un anfibio. Su piel es húmeda y fina, no tiene escamas, y de chica vive en el agua como un pez.",
+      "reinforcement": {
+        "question": "¿Sabías que las ranas beben por la piel?",
+        "fact": "Las ranas no toman agua con la boca: absorben humedad directamente a través de su piel.",
+        "extraFact": "También respiran en parte por la piel, además de hacerlo con los pulmones cuando están fuera del agua."
+      },
+      "funFacts": [
+        "Algunas ranas tropicales tienen veneno tan fuerte en su piel que los pueblos originarios lo usaban para sus flechas.",
+        "Una rana puede saltar hasta 20 veces su propio largo gracias a sus patas traseras enormes."
+      ]
+    },
+    "a_salamander": {
+      "id": "a_salamander",
+      "type": "answer",
+      "animal": "Salamandra",
+      "classification": "Anfibio",
+      "confidenceQuestion": "¿Estás pensando en una salamandra?",
+      "reasoning": "Es un anfibio que conserva la cola durante toda su vida, a diferencia de la rana — vive en lugares húmedos y su piel siempre está mojada para poder respirar por ella.",
+      "reinforcement": {
+        "question": "¿Sabías que la salamandra puede regenerar sus patas?",
+        "fact": "Si una salamandra pierde una pata o la cola, le vuelve a crecer completa con huesos y músculos.",
+        "extraFact": "Algunas salamandras nunca crecen del todo: siguen pareciendo renacuajos incluso cuando son adultas."
+      },
+      "funFacts": [
+        "Hay salamandras que viven más de 50 años.",
+        "La salamandra gigante de China puede medir casi 2 metros de largo."
+      ]
+    },
+    "a_snake": {
+      "id": "a_snake",
+      "type": "answer",
+      "animal": "Serpiente",
+      "classification": "Reptil",
+      "confidenceQuestion": "¿Estás pensando en una serpiente?",
+      "reasoning": "Es un reptil sin patas que se mueve arrastrándose por el suelo — tiene escamas secas y sangre fría como todos los reptiles, y necesita el sol para regular su temperatura.",
+      "reinforcement": {
+        "question": "¿Sabías que las serpientes huelen con la lengua?",
+        "fact": "La serpiente saca la lengua para recoger partículas de olor y luego las lleva a un órgano especial dentro de su boca.",
+        "extraFact": "No pueden masticar: tragan a sus presas enteras, a veces más grandes que su propia cabeza."
+      },
+      "funFacts": [
+        "Cambian de piel varias veces al año, dejando la vieja entera como un calcetín.",
+        "No todas son venenosas: muchas serpientes matan a sus presas enroscándose alrededor de ellas."
+      ]
+    },
+    "a_turtle": {
+      "id": "a_turtle",
+      "type": "answer",
+      "animal": "Tortuga",
+      "classification": "Reptil",
+      "confidenceQuestion": "¿Estás pensando en una tortuga?",
+      "reasoning": "Es un reptil con un caparazón que forma parte de su esqueleto — puede vivir en tierra, en agua dulce o en el mar, y tiene escamas y sangre fría como todos los reptiles.",
+      "reinforcement": {
+        "question": "¿Sabías que algunas tortugas viven más de 150 años?",
+        "fact": "Ciertas tortugas gigantes pueden vivir más de un siglo y medio, siendo de los animales más longevos del planeta.",
+        "extraFact": "Las tortugas marinas recorren miles de kilómetros y vuelven a poner sus huevos en la misma playa donde nacieron."
+      },
+      "funFacts": [
+        "El sexo de las tortuguitas depende de la temperatura de la arena donde se incuban los huevos.",
+        "No tienen dientes: cortan la comida con el borde filoso de su pico."
+      ]
+    },
+    "a_crocodile": {
+      "id": "a_crocodile",
+      "type": "answer",
+      "animal": "Cocodrilo",
+      "classification": "Reptil",
+      "confidenceQuestion": "¿Estás pensando en un cocodrilo?",
+      "reasoning": "Es un reptil grande con patas cortas, dientes fuertes y piel escamosa — vive cerca del agua y caza acechando en silencio, apenas con los ojos y la nariz fuera.",
+      "reinforcement": {
+        "question": "¿Sabías que los cocodrilos existen desde los dinosaurios?",
+        "fact": "Los cocodrilos son parientes cercanos de los dinosaurios y apenas han cambiado su aspecto en más de 200 millones de años.",
+        "extraFact": "Pueden aguantar la respiración debajo del agua durante más de una hora mientras esperan a su presa."
+      },
+      "funFacts": [
+        "La mamá cocodrilo lleva a sus crías en la boca para protegerlas después de que nacen.",
+        "Su mordida es una de las más fuertes del reino animal, pero los músculos que abren la boca son muy débiles."
+      ]
+    }
+  }
+}
