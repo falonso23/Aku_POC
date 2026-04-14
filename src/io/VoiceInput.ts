@@ -70,34 +70,50 @@ export class VoiceInput implements InputAdapter {
 
       const timer = setTimeout(() => finish(null), timeoutMs);
 
+      let lastTranscript = '';
+
       rec.onresult = (ev: any) => {
         if (settled) return;
         const results = ev.results;
         if (!results) return;
 
-        const startIdx = typeof ev.resultIndex === 'number' ? ev.resultIndex : 0;
-        let interimAccum = '';
-
-        for (let i = startIdx; i < results.length; i++) {
+        // Build full transcript (all results, interim + final)
+        let fullText = '';
+        for (let i = 0; i < results.length; i++) {
           const res = results[i];
-          if (!res) continue;
+          if (!res || !res[0]) continue;
+          fullText += res[0].transcript;
+        }
+        lastTranscript = fullText;
+
+        // Emit interim BEFORE matching so UI has a chance to render
+        if (onInterim && this.active === rec && fullText.trim()) {
+          onInterim(fullText.trim());
+        }
+
+        // Only finalize on final results — interim must stay visible
+        for (let i = 0; i < results.length; i++) {
+          const res = results[i];
+          if (!res || !res.isFinal) continue;
           for (let j = 0; j < res.length; j++) {
             const alt = res[j];
             if (!alt) continue;
             const match = matchOption(alt.transcript, options);
             if (match) return finish(match);
           }
-          const first = res[0];
-          if (first && first.transcript) interimAccum += first.transcript;
-        }
-
-        if (onInterim && this.active === rec && interimAccum) {
-          onInterim(interimAccum);
         }
       };
       rec.onnomatch = () => finish(null);
       rec.onerror = () => finish(null);
-      rec.onend = () => finish(null);
+      // Fallback: recognition ended without a final match — try matching last interim
+      rec.onend = () => {
+        if (settled) return;
+        if (lastTranscript) {
+          const m = matchOption(lastTranscript, options);
+          if (m) return finish(m);
+        }
+        finish(null);
+      };
 
       try {
         rec.start();
